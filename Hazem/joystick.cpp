@@ -73,14 +73,14 @@ if (abs(X-prev_x) >SGNFCANT || abs(Y-prev_y) >SGNFCANT ||abs(Z-prev_z) >(SGNFCAN
      {
        if(Y>0)
        {
-           // Up Right
+           // Forward Right
            pwms[2] = convert_to_PWM(X,Axis_Range);
            pwms[3] = convert_to_PWM(Y,Axis_Range);
            pwms[1]=pwms[4]=convert_to_PWM(0,Axis_Range);
        }
        else if (Y<0)
        {
-           // Down Right
+           // Backword Right
            pwms[1] = convert_to_PWM(Y,Axis_Range);
            pwms[4] = convert_to_PWM(-X,Axis_Range);
            pwms[2]=pwms[3]=convert_to_PWM(0,Axis_Range);
@@ -88,14 +88,14 @@ if (abs(X-prev_x) >SGNFCANT || abs(Y-prev_y) >SGNFCANT ||abs(Z-prev_z) >(SGNFCAN
        }
     }
     else if(Y>0)
-    {     // Up Left
+    {     // Forward Left
          pwms[1] = convert_to_PWM(-X,Axis_Range);
          pwms[4] = convert_to_PWM(Y,Axis_Range);
          pwms[2]=pwms[3]=convert_to_PWM(0,Axis_Range);
     }
     else
     {
-         // Down Left
+         // Backword Left
          pwms[2] = convert_to_PWM(Y,Axis_Range);
          pwms[3] = convert_to_PWM(X,Axis_Range);
          pwms[1]=pwms[4]=convert_to_PWM(0,Axis_Range);
