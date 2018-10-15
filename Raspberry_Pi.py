@@ -37,7 +37,7 @@ Motors = []
 # Motors 3 ,4 Back Motors
 # Motors 0 , 5 Z-Axis Motors
 for i in range(6):
-        Motors[i] = Motor(i)
+        Motors.append( Motor(i) )
 
 #================== Movment Functions =======================
 def Move(str_msg):
