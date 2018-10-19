@@ -118,17 +118,10 @@ if (abs(X-prev_x) >SGNFCANT || abs(Y-prev_y) >SGNFCANT ||abs(Z-prev_z) >(SGNFCAN
 else if (abs(X) >DEAD_ZONE && abs(Y) < DEAD_ZONE*2)
 {
  // Right & Left
-   if (X > 0)
-   {
+ 
        pwms[2] = pwms[3] =convert_to_PWM (X,Axis_Range);
        pwms[1] = pwms[4] =convert_to_PWM(-X,Axis_Range);
-
-   }
-   else if (X < 0)
-   {
-       pwms[2] = pwms[3] =convert_to_PWM(-X,Axis_Range);
-       pwms[1] = pwms[4] =convert_to_PWM (X,Axis_Range);
-   }
+   
 }
 // ==============================================================
 else if (abs(Y) >DEAD_ZONE && abs(X) < DEAD_ZONE*2)
