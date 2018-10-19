@@ -1,0 +1,14 @@
+#UDP Receiver
+
+gst-launch-1.0 udpsrc port=10000 ! application/x-rtp,encoding-name=H264 ! rtpjitterbuffer ! rtph264depay ! avdec_h264 ! videoconvert ! ximagesink
+
+
+
+#UDP Transmitter:
+
+gst-launch-1.0 v4l2src ! video/x-raw,width=320,height=240 ! videoconvert ! x264enc tune=zerolatency ! rtph264pay ! udpsink port=10000
+
+
+3shan t5leeh mn el external cam , 5aly el transmitter :
+
+gst-launch-1.0 v4l2src device="/dev/video0" ! video/x-raw,width=320,height=240 ! videoconvert ! x264enc tune=zerolatency ! rtph264pay ! udpsink  host='OF THE SINK' port=10000
