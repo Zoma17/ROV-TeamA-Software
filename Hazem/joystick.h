@@ -16,10 +16,9 @@
 #include<QObject>
 #include <string.h>
 using namespace std;
-#define DEAD_ZONE 9000
-#define SPEED_FACTOR 8000
+#define DEAD_ZONE 5000
 #define GetAxis(JS,AXIS) SDL_JoystickGetAxis(JS,AXIS)
-#define SGNFCANT 6000
+#define SGNFCANT 2000
 
 
 
@@ -28,14 +27,14 @@ class Joystick :public QObject
     Q_OBJECT
 public:
     Joystick();
-
    private:
     SDL_Joystick *js;
     SDL_Event  event;
     QTimer * timer;
-    int current_speed,prev_speed,prev_x,prev_y,prev_z,prev_r;
+    int prev_x,prev_y,prev_z,prev_r;
     int pwms[5];
-    string current_move,prev_move,msg;
+    string msg;
+
 signals:
     void do_action(string);
 public slots:
