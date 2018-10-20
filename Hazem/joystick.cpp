@@ -20,13 +20,10 @@ X,Y,Z,R are the axes of the joystick for simplicity
 // ==============================================
 int convert_to_PWM(int x , int Range)
 {
-   double percentage = abs((double)x/Range);
-   if (x > 0)
+   double percentage = (double)x/Range;
+  
        return Neutral + percentage * (Forward_Force - Neutral);
-   else if (x < 0)
-       return Neutral - percentage * (Neutral - Brake_Force);
-   else
-       return Neutral;
+  
 }
 
 Joystick::Joystick()
