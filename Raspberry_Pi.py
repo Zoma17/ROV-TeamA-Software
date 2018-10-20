@@ -52,7 +52,7 @@ class Motor:
                         return
 
                 pwm.set_pwm(self.__pin,0,Speed)
-
+                self.__speed = Speed 
 Motors = []
 # Motors 1 ,2 Front Motors
 # Motors 3 ,4 Back Motors
